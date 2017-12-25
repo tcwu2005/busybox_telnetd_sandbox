@@ -1,0 +1,11 @@
+#!/bin/sh
+echo "Content-type: text/html"
+echo ""
+echo "Sample CGI Output"
+echo ""
+echo ""
+echo "<BODY> <pre>"
+env
+echo "</pre> </BODY>"
+echo ""
+echo ""

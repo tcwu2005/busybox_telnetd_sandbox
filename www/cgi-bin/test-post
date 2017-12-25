@@ -1,0 +1,25 @@
+#!/bin/sh
+echo "Content-type: text/html"
+echo ""
+echo "Sample CGI Output"
+echo ""
+echo ""
+echo "Environment variables"
+echo ""
+echo "<BODY><pre>"
+env
+echo "========================================================="
+echo "1"
+echo $QUERY_STRING 
+##echo "2"
+##read QUERY_STRING 
+##echo $QUERY_STRING 
+echo "3"
+eval $(echo "$QUERY_STRING"|awk -F'&' '{for(i=1;i<=NF;i++){print $i}}')
+echo $QUERY_STRING
+tmp=`busybox httpd -d $Text_Field`
+echo "Text_Field"
+echo "=$tmp"
+echo "</pre></BODY>"
+echo ""
+echo ""
